@@ -12,6 +12,11 @@ from utils import model_utils
 app = Flask(__name__)
 model = None
 
+@app.route('/un_predict', methods=['POST'])
+def un_predict():
+    print("The test data in unprocessed form is", request.json)
+    return ("Done!")
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if model:
